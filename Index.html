@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poliforte Concretos | Materiais e Locações de Betoneiras</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for professional industrial and corporate icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        corporate: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            dark: '#0f172a',
+                            darker: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and corporate styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <header class="bg-corporate-darker text-white sticky top-0 z-50 shadow-lg border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                <div class="bg-corporate-600 text-white p-2.5 rounded-xl font-black text-2xl shadow-md flex items-center justify-center">
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-white block leading-tight">POLIFORTE CONCRETOS</span>
+                    <span class="text-xs text-corporate-400 font-semibold tracking-wider uppercase">Materiais & Betoneiras</span>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-6">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-colors text-corporate-400 bg-slate-800/60"><i class="fa-solid fa-store mr-1.5"></i> Loja & Locação</button>
+                <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800/40"><i class="fa-solid fa-chart-line mr-1.5"></i> Painel de Vendas</button>
+                <button onclick="switchTab('seller')" id="nav-seller" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium transition-colors text-slate-300 hover:text-white hover:bg-slate-800/40"><i class="fa-solid fa-file-invoice-dollar mr-1.5"></i> Gerar Cobrança</button>
+            </nav>
+
+            <!-- Action & Mobile Menu -->
+            <div class="flex items-center space-x-4">
+                <a href="#contato" onclick="switchTab('home')" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-semibold rounded-xl text-white bg-corporate-600 hover:bg-corporate-700 transition-all shadow-md">
+                    <i class="fa-brands fa-whatsapp mr-2 text-base"></i> Orçamento Rápido
+                </a>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-corporate-dark border-t border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white bg-slate-800"><i class="fa-solid fa-store mr-2"></i> Loja & Locação</button>
+            <button onclick="switchTab('dashboard'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-chart-line mr-2"></i> Painel de Vendas</button>
+            <button onclick="switchTab('seller'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800"><i class="fa-solid fa-file-invoice-dollar mr-2"></i> Gerar Cobrança</button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- ==================== HOME / STORE VIEW ==================== -->
+        <div id="view-home" class="view-section">
+            <!-- Hero Section -->
+            <section class="relative bg-corporate-darker text-white overflow-hidden py-20 lg:py-28">
+                <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-corporate-500/20 text-corporate-400 border border-corporate-500/30">
+                                <i class="fa-solid fa-shield-halved mr-1.5"></i> Poliforte Concretos: Tradição e Confiança na Obra
+                            </span>
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none">
+                                Concreto Usinado e Materiais de <span class="text-corporate-500 underline decoration-corporate-500/40">Alta Resistência</span>.
+                            </h1>
+                            <p class="text-lg text-slate-300 max-w-xl">
+                                Fornecimento rigoroso de concreto usinado, materiais pesados, acabamentos e locação de caminhões betoneiras com pontualidade garantida pela Poliforte.
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-4">
+                                <a href="#catalogo" class="inline-flex justify-center items-center px-6 py-3.5 border border-transparent text-base font-bold rounded-xl text-white bg-corporate-600 hover:bg-corporate-700 transition-all shadow-lg hover:shadow-corporate-500/20">
+                                    <i class="fa-solid fa-boxes-stacked mr-2"></i> Ver Produtos & Locações
+                                </a>
+                                <button onclick="switchTab('seller')" class="inline-flex justify-center items-center px-6 py-3.5 border border-slate-700 text-base font-bold rounded-xl text-white bg-slate-800/80 hover:bg-slate-800 transition-all">
+                                    <i class="fa-solid fa-calculator mr-2 text-corporate-400"></i> Simular Orçamento / Venda
+                                </button>
+                            </div>
+                            <!-- Trust badges counter -->
+                            <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800/80">
+                                <div>
+                                    <p class="text-2xl font-black text-corporate-400">+15 Anos</p>
+                                    <p class="text-xs text-slate-400">No mercado da construção</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-black text-corporate-400">+30 Frota</p>
+                                    <p class="text-xs text-slate-400">Betoneiras e caminhões</p>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-black text-corporate-400">99.9%</p>
+                                    <p class="text-xs text-slate-400">Entregas no prazo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="relative mx-auto max-w-md lg:max-w-none rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800 bg-slate-900 p-2">
+                                <img src="https://placehold.co/600x450/1e293b/3b82f6?text=Poliforte+Caminhao+Betoneira" alt="Caminhão Betoneira Poliforte" class="w-full h-80 sm:h-96 object-cover rounded-xl">
+                                <div class="absolute bottom-6 left-6 right-6 bg-corporate-darker/90 backdrop-blur-md p-4 rounded-xl border border-slate-700">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="bg-corporate-600 p-3 rounded-lg text-white">
+                                            <i class="fa-solid fa-truck text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold text-white">Poliforte Concretos - Frota 8m³</p>
+                                            <p class="text-xs text-corporate-400 font-medium">Atendimento técnico especializado</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="catalogo" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-corporate-600 mb-2">Catálogo Oficial Poliforte</h2>
+                    <h3 class="text-3xl font-extrabold text-slate-900 tracking-tight">Materiais de Construção & Locação de Equipamentos</h3>
+                    <p class="text-slate-600 mt-2">Trabalhamos com rigorosos padrões de qualidade e betoneiras de última geração.</p>
+                    
+                    <!-- Filter Tabs -->
+                    <div class="flex justify-center space-x-2 mt-6">
+                        <button onclick="filterCatalog('all')" id="filter-all" class="filter-btn px-4 py-2 text-sm font-semibold rounded-lg bg-corporate-dark text-white transition-all">Todos</button>
+                        <button onclick="filterCatalog('material')" id="filter-material" class="filter-btn px-4 py-2 text-sm font-semibold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 transition-all">Materiais & Concreto</button>
+                        <button onclick="filterCatalog('rental')" id="filter-rental" class="filter-btn px-4 py-2 text-sm font-semibold rounded-lg bg-slate-200 text-slate-700 hover:bg-slate-300 transition-all">Locações & Frota</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Cards will be populated dynamically -->
+                </div>
+            </section>
+
+            <!-- Trust / Why Choose Us -->
+            <section class="bg-slate-900 text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <h2 class="text-corporate-400 font-bold uppercase tracking-wider text-sm mb-2">Compromisso Poliforte Concretos</h2>
+                        <h3 class="text-3xl font-extrabold tracking-tight">Por que grandes construtoras confiam na Poliforte?</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+                            <div class="w-12 h-12 bg-corporate-500/20 text-corporate-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <h4 class="text-lg font-bold mb-2">Certificação de Qualidade</h4>
+                            <p class="text-slate-400 text-sm">Concreto usinado dentro dos mais rigorosos testes de laboratório e normas técnicas da ABNT.</p>
+                        </div>
+                        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+                            <div class="w-12 h-12 bg-corporate-500/20 text-corporate-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <h4 class="text-lg font-bold mb-2">Frota Própria Monitorada</h4>
+                            <p class="text-slate-400 text-sm">Caminhões betoneiras modernos com rastreamento via satélite para garantir o tempo de pega perfeito na sua obra.</p>
+                        </div>
+                        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+                            <div class="w-12 h-12 bg-corporate-500/20 text-corporate-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <h4 class="text-lg font-bold mb-2">Atendimento de Engenharia</h4>
+                            <p class="text-slate-400 text-sm">Plantão técnico com engenheiros civis prontos para auxiliar no cálculo de traços e volumetria.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== SALES DASHBOARD VIEW ==================== -->
+        <div id="view-dashboard" class="view-section hidden py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 pb-6 border-b border-slate-200">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Painel de Acompanhamento de Vendas</h2>
+                    <p class="text-slate-600 mt-1">Poliforte Concretos — Visão geral de faturamento, pedidos e status de pagamentos.</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex space-x-3">
+                    <button onclick="switchTab('seller')" class="inline-flex items-center px-4 py-2.5 bg-corporate-600 hover:bg-corporate-700 text-white font-semibold rounded-xl text-sm transition-all shadow-md">
+                        <i class="fa-solid fa-plus mr-2"></i> Nova Cobrança / Venda
+                    </button>
+                    <button onclick="refreshDashboard()" class="inline-flex items-center px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-700 font-semibold rounded-xl text-sm border border-slate-300 transition-all">
+                        <i class="fa-solid fa-rotate mr-2 text-slate-500"></i> Atualizar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Metrics Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Faturamento Total</p>
+                        <h3 id="stat-revenue" class="text-2xl font-extrabold text-slate-900 mt-1">R$ 0,00</h3>
+                        <span class="text-xs text-emerald-600 font-semibold mt-1 inline-block"><i class="fa-solid fa-arrow-trend-up mr-1"></i> +15% este mês</span>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Vendas Realizadas</p>
+                        <h3 id="stat-sales-count" class="text-2xl font-extrabold text-slate-900 mt-1">0</h3>
+                        <span class="text-xs text-blue-600 font-semibold mt-1 inline-block"><i class="fa-solid fa-check mr-1"></i> Pedidos confirmados</span>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Locações Ativas</p>
+                        <h3 id="stat-rentals-count" class="text-2xl font-extrabold text-slate-900 mt-1">0</h3>
+                        <span class="text-xs text-amber-600 font-semibold mt-1 inline-block"><i class="fa-solid fa-truck-ramp-box mr-1"></i> Betoneiras em campo</span>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Cobranças Pendentes</p>
+                        <h3 id="stat-pending" class="text-2xl font-extrabold text-slate-900 mt-1">R$ 0,00</h3>
+                        <span class="text-xs text-rose-600 font-semibold mt-1 inline-block"><i class="fa-solid fa-clock mr-1"></i> Aguardando Pix/Boleto</span>
+                    </div>
+                    <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Table Section -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="p-6 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <h3 class="text-lg font-bold text-slate-900">Histórico de Vendas e Cobranças — Poliforte</h3>
+                    <div class="flex items-center space-x-3">
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                <i class="fa-solid fa-search"></i>
+                            </span>
+                            <input type="text" id="search-sales" onkeyup="filterSalesTable()" placeholder="Buscar cliente..." class="pl-10 pr-4 py-2 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-200 text-left">
+                        <thead class="bg-slate-50 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            <tr>
+                                <th class="px-6 py-4">ID / Data</th>
+                                <th class="px-6 py-4">Cliente</th>
+                                <th class="px-6 py-4">Itens / Descrição</th>
+                                <th class="px-6 py-4">Valor Total</th>
+                                <th class="px-6 py-4">Pagamento</th>
+                                <th class="px-6 py-4">Status</th>
+                                <th class="px-6 py-4 text-right">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sales-table-body" class="divide-y divide-slate-200 text-sm text-slate-700">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== SELLER / BILLING GENERATOR VIEW ==================== -->
+        <div id="view-seller" class="view-section hidden py-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8 pb-6 border-b border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-widest text-corporate-600 mb-1 block">Área Exclusiva de Vendas — Poliforte Concretos</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Gerador de Cobranças e Pedidos</h2>
+                <p class="text-slate-600 mt-1">Preencha os dados do cliente e selecione o concreto ou locação para gerar link de cobrança seguro e registrar no painel.</p>
+            </div>
+
+            <form id="billing-form" onsubmit="handleGenerateCharge(event)" class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                <!-- Client Details -->
+                <div>
+                    <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center">
+                        <span class="w-7 h-7 rounded-lg bg-corporate-600 text-white flex items-center justify-center text-sm font-black mr-2">1</span>
+                        Dados do Cliente
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Nome Completo / Razão Social *</label>
+                            <input type="text" id="client-name" required placeholder="Ex: Construtora Horizon Ltda" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">CPF ou CNPJ *</label>
+                            <input type="text" id="client-doc" required placeholder="00.000.000/0001-00" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Telefone / WhatsApp *</label>
+                            <input type="text" id="client-phone" required placeholder="(11) 99999-9999" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">E-mail para Envio da Nota</label>
+                            <input type="email" id="client-email" placeholder="contato@obra.com.br" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-slate-200">
+
+                <!-- Item Selection -->
+                <div>
+                    <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center">
+                        <span class="w-7 h-7 rounded-lg bg-corporate-600 text-white flex items-center justify-center text-sm font-black mr-2">2</span>
+                        Seleção de Concreto, Materiais ou Locação
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Selecione o Item do Catálogo</label>
+                            <select id="selected-catalog-item" onchange="updateItemPrice()" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Quantidade / m³ / Dias</label>
+                            <input type="number" id="item-qty" min="1" value="1" oninput="calculateTotal()" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Preço Unitário (R$)</label>
+                            <input type="number" step="0.01" id="item-price" required oninput="calculateTotal()" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Forma de Pagamento</label>
+                            <select id="payment-method" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-corporate-500">
+                                <option value="Pix">Pix Instantâneo (QR Code)</option>
+                                <option value="Cartão de Crédito">Cartão de Crédito (Até 12x)</option>
+                                <option value="Boleto Bancário">Boleto Bancário (30 dias)</option>
+                                <option value="Faturado Obra">Faturado para Construtora</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-slate-200">
+
+                <!-- Total & Submit -->
+                <div class="bg-slate-50 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between border border-slate-200">
+                    <div>
+                        <span class="text-xs font-bold uppercase text-slate-500 block">Valor Total da Cobrança</span>
+                        <span id="display-total" class="text-3xl font-black text-corporate-700">R$ 0,00</span>
+                    </div>
+                    <div class="mt-4 sm:mt-0 flex space-x-3 w-full sm:w-auto">
+                        <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-corporate-600 hover:bg-corporate-700 text-white font-bold rounded-xl text-base shadow-lg transition-all flex items-center justify-center">
+                            <i class="fa-solid fa-qrcode mr-2"></i> Gerar Cobrança e Link Pix
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- Modal for Payment / Charge Success -->
+    <div id="modal-charge" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-2xl max-w-md w-full mx-4 p-6 shadow-2xl border border-slate-200">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="text-xl font-extrabold text-slate-900">Cobrança Gerada com Sucesso!</h3>
+                <p class="text-sm text-slate-600 mt-1">O pedido foi registrado no painel Poliforte e o link de pagamento está pronto.</p>
+                
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 my-6 text-left space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <span class="text-slate-500 font-semibold">Cliente:</span>
+                        <span id="modal-client-name" class="font-bold text-slate-800">-</span>
+                    </div>
+                    <div class="flex justify-between text-xs">
+                        <span class="text-slate-500 font-semibold">Valor:</span>
+                        <span id="modal-total-val" class="font-bold text-emerald-600">-</span>
+                    </div>
+                    <div class="flex justify-between text-xs">
+                        <span class="text-slate-500 font-semibold">Forma:</span>
+                        <span id="modal-payment-type" class="font-bold text-slate-800">-</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <button onclick="copyPaymentLink()" class="w-full py-3 bg-corporate-600 hover:bg-corporate-700 text-white font-bold rounded-xl text-sm transition-all shadow-md">
+                        <i class="fa-solid fa-copy mr-2"></i> Copiar Link de Pagamento / Pix
+                    </button>
+                    <button onclick="closeModal()" class="w-full py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl text-sm transition-all">
+                        Fechar e Ir ao Painel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center space-x-3 transform translate-y-24 opacity-0 transition-all duration-300 border border-slate-800">
+        <i class="fa-solid fa-circle-check text-corporate-400 text-lg"></i>
+        <span id="toast-message" class="text-sm font-medium">Ação realizada com sucesso!</span>
+    </div>
+
+    <footer class="bg-corporate-darker text-slate-400 border-t border-slate-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-corporate-600 text-white p-2 rounded-xl font-black text-xl">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                        </div>
+                        <span class="text-lg font-extrabold text-white">POLIFORTE CONCRETOS</span>
+                    </div>
+                    <p class="text-xs text-slate-400">
+                        Sua parceira definitiva em concreto usinado, materiais pesados de construção civil e locação de caminhões betoneiras.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Produtos</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#catalogo" onclick="switchTab('home')" class="hover:text-corporate-400 transition-colors">Concreto Usinado FCK 25/30</a></li>
+                        <li><a href="#catalogo" onclick="switchTab('home')" class="hover:text-corporate-400 transition-colors">Cimento CP II-E 50kg</a></li>
+                        <li><a href="#catalogo" onclick="switchTab('home')" class="hover:text-corporate-400 transition-colors">Areia e Brita Lavada</a></li>
+                        <li><a href="#catalogo" onclick="switchTab('home')" class="hover:text-corporate-400 transition-colors">Aço e Vergalhões CA-50</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Locações & Frota</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#catalogo" onclick="switchTab('home')" class="hover:text-corporate-400 transition-colors">Caminhão Betoneira 8m³</a></li>
+                        <li><a href="#catalogo" onclick="switchTab('home')" class="hover:text-corporate-400 transition-colors">Betoneiras 400L</a></li>
+                        <li><a href="#catalogo" onclick="switchTab('home')" class="hover:text-corporate-400 transition-colors">Andaimes Metálicos NR-18</a></li>
+                        <li><a href="#catalogo" onclick="switchTab('home')" class="hover:text-corporate-400 transition-colors">Compactadores de Solo</a></li>
+                    </ul>
+                </div>
+                <div id="contato">
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Atendimento & Vendas</h4>
+                    <p class="text-xs mb-2"><i class="fa-solid fa-phone text-corporate-400 mr-2"></i> (11) 3456-7890</p>
+                    <p class="text-xs mb-2"><i class="fa-brands fa-whatsapp text-corporate-400 mr-2"></i> (11) 98888-7777</p>
+                    <p class="text-xs mb-2"><i class="fa-solid fa-envelope text-corporate-400 mr-2"></i> contato@PoliforteConcretos.com.br</p>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Poliforte Concretos. Todos os direitos reservados. Pronto para GitHub Pages.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Catalog data containing concrete, construction materials and rentals
+        const catalogItems = [
+            { id: 1, name: "Concreto Usinado FCK 25 (m³)", category: "material", price: 320.00, unit: "m³", badge: "Alta Resistência", icon: "fa-cubes", img: "https://placehold.co/400x300/1e293b/3b82f6?text=Concreto+Usinado" },
+            { id: 2, name: "Locação Caminhão Betoneira 8m³", category: "rental", price: 850.00, unit: "Diária", badge: "Frota Própria", icon: "fa-truck", img: "https://placehold.co/400x300/1e293b/3b82f6?text=Caminhao+Betoneira" },
+            { id: 3, name: "Cimento CP II-E 50kg Poliforte", category: "material", price: 35.90, unit: "Saco", badge: "Mais Vendido", icon: "fa-box", img: "https://placehold.co/400x300/1e293b/3b82f6?text=Cimento+50kg" },
+            { id: 4, name: "Areia Média Lavada", category: "material", price: 125.00, unit: "m³", badge: "Entrega Rápida", icon: "fa-mountain", img: "https://placehold.co/400x300/1e293b/3b82f6?text=Areia+Media" },
+            { id: 5, name: "Locação Betoneira 400L", category: "rental", price: 95.00, unit: "Diária", badge: "Revisada", icon: "fa-gear", img: "https://placehold.co/400x300/1e293b/3b82f6?text=Betoneira+400L" },
+            { id: 6, name: "Brita nº 1", category: "material", price: 140.00, unit: "m³", badge: "Qualidade ABNT", icon: "fa-gem", img: "https://placehold.co/400x300/1e293b/3b82f6?text=Brita+N1" },
+            { id: 7, name: "Vergalhão CA-50 12mm (12m)", category: "material", price: 59.90, unit: "Barra", badge: "Aço Gerdau", icon: "fa-bars", img: "https://placehold.co/400x300/1e293b/3b82f6?text=Vergalhao+12mm" },
+            { id: 8, name: "Locação Kit Andaime Metálico (1x1.5m)", category: "rental", price: 45.00, unit: "Diária/Peça", badge: "Segurança NR-18", icon: "fa-layer-group", img: "https://placehold.co/400x300/1e293b/3b82f6?text=Andaimes+Metalicos" }
+        ];
+
+        // Initial Sales Data for Poliforte Dashboard
+        let salesData = [
+            { id: "POL-3042", date: "14/10/2026", client: "Construtora Horizonte S/A", items: "15m³ Concreto Usinado FCK 25 + 1x Betoneira", total: 5650.00, payment: "Pix", status: "Pago" },
+            { id: "POL-3041", date: "14/10/2026", client: "Eng. Ricardo Mendes", items: "80x Cimento CP II-E 50kg", total: 2872.00, payment: "Cartão de Crédito", status: "Pago" },
+            { id: "POL-3040", date: "13/10/2026", client: "MRV Engenharia (Obra Sul)", items: "30m³ Concreto Usinado FCK 30", total: 10200.00, payment: "Faturado Obra", status: "Pendente" },
+            { id: "POL-3039", date: "12/10/2026", client: "Reforma Rápida Comércio", items: "3x Locação Betoneira 400L", total: 285.00, payment: "Boleto Bancário", status: "Pago" }
+        ];
+
+        // Initialize App on load
+        window.onload = function() {
+            renderCatalog('all');
+            populateSellerCatalogSelect();
+            updateDashboardMetrics();
+            renderSalesTable();
+        };
+
+        // Switch Tabs SPA
+        function switchTab(tabId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById('view-' + tabId).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-corporate-400', 'bg-slate-800/60');
+                btn.classList.add('text-slate-300');
+            });
+
+            const activeBtn = document.getElementById('nav-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-slate-300');
+                activeBtn.classList.add('text-corporate-400', 'bg-slate-800/60');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Render Catalog Grid
+        function renderCatalog(filter) {
+            const grid = document.getElementById('catalog-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? catalogItems : catalogItems.filter(i => i.category === filter);
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div class="relative overflow-hidden bg-slate-100 h-48">
+                        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-corporate-darker text-corporate-400 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-700 shadow">
+                            ${item.badge}
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-corporate-600 uppercase tracking-wider">${item.category === 'material' ? 'Concreto & Material' : 'Locação de Equipamento'}</span>
+                            <h4 class="text-base font-bold text-slate-900 mt-1 mb-2">${item.name}</h4>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Preço por ${item.unit}</span>
+                                <span class="text-lg font-black text-corporate-700">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+                            </div>
+                            <button onclick="quickOrder(${item.id})" class="px-3.5 py-2 bg-corporate-dark hover:bg-corporate-600 text-white font-bold text-xs rounded-xl transition-all shadow">
+                                <i class="fa-solid fa-file-invoice-dollar mr-1"></i> Cobrar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Update filter buttons styling
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-corporate-dark', 'text-white');
+                b.classList.add('bg-slate-200', 'text-slate-700');
+            });
+            document.getElementById('filter-' + filter).classList.remove('bg-slate-200', 'text-slate-700');
+            document.getElementById('filter-' + filter).classList.add('bg-corporate-dark', 'text-white');
+        }
+
+        // Filter catalog helper
+        function filterCatalog(type) {
+            renderCatalog(type);
+        }
+
+        // Quick Order from Catalog -> Switches to seller tab and pre-fills
+        function quickOrder(itemId) {
+            const item = catalogItems.find(i => i.id === itemId);
+            if(!item) return;
+
+            switchTab('seller');
+            document.getElementById('selected-catalog-item').value = item.id;
+            document.getElementById('item-price').value = item.price;
+            document.getElementById('item-qty').value = 1;
+            calculateTotal();
+            showToast('Item carregado no gerador de cobrança Poliforte!');
+        }
+
+        // Populate seller catalog select dropdown
+        function populateSellerCatalogSelect() {
+            const select = document.getElementById('selected-catalog-item');
+            select.innerHTML = '';
+            catalogItems.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = item.id;
+                opt.textContent = `${item.name} (R$ ${item.price.toFixed(2)} / ${item.unit})`;
+                select.appendChild(opt);
+            });
+            if(catalogItems.length > 0) {
+                document.getElementById('item-price').value = catalogItems[0].price;
+                calculateTotal();
+            }
+        }
+
+        // Update item price when select changes
+        function updateItemPrice() {
+            const id = parseInt(document.getElementById('selected-catalog-item').value);
+            const item = catalogItems.find(i => i.id === id);
+            if(item) {
+                document.getElementById('item-price').value = item.price;
+                calculateTotal();
+            }
+        }
+
+        // Calculate total in seller form
+        function calculateTotal() {
+            const price = parseFloat(document.getElementById('item-price').value) || 0;
+            const qty = parseInt(document.getElementById('item-qty').value) || 1;
+            const total = price * qty;
+            document.getElementById('display-total').textContent = `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }
+
+        // Handle generate charge form
+        function handleGenerateCharge(e) {
+            e.preventDefault();
+            const clientName = document.getElementById('client-name').value;
+            const clientDoc = document.getElementById('client-doc').value;
+            const phone = document.getElementById('client-phone').value;
+            const catalogId = parseInt(document.getElementById('selected-catalog-item').value);
+            const itemObj = catalogItems.find(i => i.id === catalogId);
+            const qty = document.getElementById('item-qty').value;
+            const price = parseFloat(document.getElementById('item-price').value);
+            const paymentMethod = document.getElementById('payment-method').value;
+            
+            const total = price * qty;
+            const newId = 'POL-' + (3043 + salesData.length);
+            const todayStr = new Date().toLocaleDateString('pt-BR');
+
+            const newSale = {
+                id: newId,
+                date: todayStr,
+                client: clientName,
+                items: `${qty}x ${itemObj ? itemObj.name : 'Concreto/Serviço'}`,
+                total: total,
+                payment: paymentMethod,
+                status: paymentMethod === 'Pix' || paymentMethod === 'Cartão de Crédito' ? 'Pago' : 'Pendente'
+            };
+
+            salesData.unshift(newSale);
+            updateDashboardMetrics();
+            renderSalesTable();
+
+            // Populate Modal
+            document.getElementById('modal-client-name').textContent = clientName;
+            document.getElementById('modal-total-val').textContent = `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+            document.getElementById('modal-payment-type').textContent = paymentMethod;
+
+            // Show success modal
+            document.getElementById('modal-charge').classList.remove('hidden');
+            document.getElementById('billing-form').reset();
+            calculateTotal();
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('modal-charge').classList.add('hidden');
+            switchTab('dashboard');
+        }
+
+        // Copy payment link helper
+        function copyPaymentLink() {
+            const dummyUrl = "https://cobranca.poliforteconcretos.com.br/pay/" + Math.random().toString(36).substring(7);
+            const textArea = document.createElement("textarea");
+            textArea.value = dummyUrl;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast("Link de pagamento Poliforte copiado com sucesso!");
+            } catch (err) {
+                showToast("Erro ao copiar link.");
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // Update dashboard metrics
+        function updateDashboardMetrics() {
+            let totalRevenue = 0;
+            let salesCount = salesData.length;
+            let rentalsCount = 0;
+            let pendingTotal = 0;
+
+            salesData.forEach(sale => {
+                if(sale.status === 'Pago') {
+                    totalRevenue += sale.total;
+                } else {
+                    pendingTotal += sale.total;
+                }
+                if(sale.items.toLowerCase().includes('betoneira') || sale.items.toLowerCase().includes('andaime')) {
+                    rentalsCount++;
+                }
+            });
+
+            document.getElementById('stat-revenue').textContent = `R$ ${totalRevenue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+            document.getElementById('stat-sales-count').textContent = salesCount;
+            document.getElementById('stat-rentals-count').textContent = rentalsCount;
+            document.getElementById('stat-pending').textContent = `R$ ${pendingTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+        }
+
+        // Render Sales Table
+        function renderSalesTable(filterQuery = '') {
+            const tbody = document.getElementById('sales-table-body');
+            tbody.innerHTML = '';
+
+            const filtered = salesData.filter(s => s.client.toLowerCase().includes(filterQuery.toLowerCase()) || s.id.toLowerCase().includes(filterQuery.toLowerCase()));
+
+            if(filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-8 text-center text-slate-400">Nenhum registro encontrado.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(sale => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition-colors";
+                tr.innerHTML = `
+                    <td class="px-6 py-4 font-semibold text-slate-900">${sale.id}<br><span class="text-xs text-slate-400 font-normal">${sale.date}</span></td>
+                    <td class="px-6 py-4 font-medium text-slate-800">${sale.client}</td>
+                    <td class="px-6 py-4 text-slate-600">${sale.items}</td>
+                    <td class="px-6 py-4 font-extrabold text-slate-900">R$ ${sale.total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
+                    <td class="px-6 py-4"><span class="px-2.5 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">${sale.payment}</span></td>
+                    <td class="px-6 py-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold ${sale.status === 'Pago' ? 'bg-emerald-100 text-emerald-700 border border-emerald-200' : 'bg-amber-100 text-amber-700 border border-amber-200'}">
+                            ${sale.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick="toggleSaleStatus('${sale.id}')" class="text-xs font-semibold px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg transition-all" title="Alternar Status">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Filter table by search input
+        function filterSalesTable() {
+            const query = document.getElementById('search-sales').value;
+            renderSalesTable(query);
+        }
+
+        // Toggle sale status between Pago and Pendente
+        function toggleSaleStatus(id) {
+            const sale = salesData.find(s => s.id === id);
+            if(sale) {
+                sale.status = sale.status === 'Pago' ? 'Pendente' : 'Pago';
+                updateDashboardMetrics();
+                renderSalesTable(document.getElementById('search-sales').value);
+                showToast(`Status do pedido ${id} atualizado para ${sale.status}!`);
+            }
+        }
+
+        // Refresh dashboard action
+        function refreshDashboard() {
+            updateDashboardMetrics();
+            renderSalesTable();
+            showToast("Painel Poliforte atualizado com sucesso!");
+        }
+
+        // Toast notification system
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
